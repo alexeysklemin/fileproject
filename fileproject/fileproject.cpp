@@ -14,13 +14,27 @@ struct friends {
 
 
     };
+    void fileWork(std::string path) {
+        if (true) {
+            std::fstream fs;
+            fs.open(path, std::fstream::in | std::fstream::out | std::fstream::app);
+            if (!fs.is_open()) {
+                std::ifstream(path);
+
+            }
+            else {
+
+            }
+
+
+       }
+}
 
 int main(){
-    std::ifstream file;
-    if (!file.is_open()) {
-        file.open("friends.txt", std::ios::out);
-        file.open("phones.txt", std::ios::out);
-    }
+  std::string path = "friendName.txt";
+  fileWork(path);
+  path = "phones.txt";
+  fileWork(path);
     
 
     
