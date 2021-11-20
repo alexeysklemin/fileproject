@@ -24,7 +24,7 @@ struct friends {
             }
     }
 }
-    std::string inputDatas(friends, phones) {
+    std::string inputDatas(struct friends, struct phones) {
         std::cin >> friends.id;
         std::cin >> friends.friendName;
         std::cin >> phones.id;
@@ -40,6 +40,7 @@ int main(){
   fileWork(path);
   path = "phones.txt";
   fileWork(path);
+  inputDatas(friends, phones);
     
 
     
