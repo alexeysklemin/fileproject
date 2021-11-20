@@ -22,13 +22,18 @@ struct friends {
                 std::ifstream(path);
 
             }
-            else {
-
-            }
-
-
-       }
+    }
 }
+    std::string inputDatas(friends, phones) {
+        std::cin >> friends.id;
+        std::cin >> friends.friendName;
+        std::cin >> phones.id;
+        std::cin >> phones.phone;
+        phones.id = friends.id;
+
+
+
+    }
 
 int main(){
   std::string path = "friendName.txt";
