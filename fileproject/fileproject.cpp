@@ -3,12 +3,12 @@
 #include <string>
 
 struct friends {
-    short id;
+    int id;
     std::string friendName;
     
     };
     struct phones {
-        short id;
+        int id;
         int idFriend;
         std::string phone;
 
@@ -24,23 +24,22 @@ struct friends {
             }
     }
 }
-    std::string inputDatas(struct friends, struct phones) {
-        std::cin >> friends.id;
-        std::cin >> friends.friendName;
-        std::cin >> phones.id;
-        std::cin >> phones.phone;
-        phones.id = friends.id;
 
-
-
+    void writToFile() {
+        fs.write((char*)&friends, sizeof(friends));
     }
+   
 
 int main(){
   std::string path = "friendName.txt";
   fileWork(path);
   path = "phones.txt";
   fileWork(path);
-  inputDatas(friends, phones);
+  std::string Name;
+  friends f;
+  f.id = 1;
+  f.friendName = "Vanya";
+
     
 
     
