@@ -54,7 +54,7 @@ struct friends {
 		void inp() {
 			std::cin >> id >> friendName;
 		}
-	  };
+};
 	
 struct phones {
 	        int id;
@@ -64,7 +64,7 @@ struct phones {
 				std::cin >> id >> phone;
 			}
 	
-	    };
+};
 
 void writeToFile(std::string pathFile){
 	
