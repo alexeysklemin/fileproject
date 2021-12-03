@@ -53,24 +53,31 @@ struct friends {
 	    std::string friendName;
 		void inp() {
 			std::cin >> id >> friendName;
+			
 		}
 };
 	
 struct phones {
-	        int id;
-	        int idFriend;
-	        std::string phone;
+	        int id = 0;
+	        int idFriend = 0;
+	        std::string phone = " ";
 			void inp() {
 				std::cin >> id >> phone;
+				std::cin >> phone;
 			}
 	
 };
 
 void writeToFile(std::string pathFile){
-	
+	std::ofstream F;
+	F.open(pathFile);
+	F.close();
 }
 
 void readFrFile(std::string pathFile) {
+	std::ifstream F;
+	F.open(pathFile);
+	F.close();
 
 }
 
@@ -83,5 +90,9 @@ int main() {
 	phones tel;
 	f.id = 1;
 	tel.id = f.id;
+	std::string path = "friends.txt";
+	writeToFile(path);
+	path  = "phones.txt";
+	writeToFile(path);
 
 }
