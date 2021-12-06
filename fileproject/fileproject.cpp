@@ -68,8 +68,14 @@ struct phones {
 	
 };
 
-void writeToFile(std::string pathFile){
+void writeToFile(std::string pathFile, friends, phones){
 	std::ofstream F;
+	friends f;
+	phones p;
+
+	std::cin >> f.id >> f.friendName >> p.id >> p.phone;
+	p.idFriend = f.id;
+
 	F.open(pathFile);
 	F.close();
 }
@@ -91,8 +97,8 @@ int main() {
 	f.id = 1;
 	tel.id = f.id;
 	std::string path = "friends.txt";
-	writeToFile(path);
+	writeToFile(path, friends, phones); //Here We should use structures like datas of dataBase 
 	path  = "phones.txt";
-	writeToFile(path);
+	readFrFile(path);
 
 }
