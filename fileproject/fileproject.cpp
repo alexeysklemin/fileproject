@@ -75,14 +75,15 @@ void writeToFile(std::string pathFile, friends, phones){
 
 	std::cin >> f.id >> f.friendName >> p.id >> p.phone;
 	p.idFriend = f.id;
-
+	write((char*)&phones, size(phones));
 	F.open(pathFile);
 	F.close();
 }
 
-void readFrFile(std::string pathFile) {
+void readFrFile(std::string pathFile, friends, phones) {
 	std::ifstream F;
 	F.open(pathFile);
+	read((char*)&phones, size(phones));
 	F.close();
 
 }
@@ -94,11 +95,11 @@ void delStringofFile() {
 int main() {
 	friends f;
 	phones tel;
-	f.id = 1;
-	tel.id = f.id;
+	
 	std::string path = "friends.txt";
-	writeToFile(path, friends, phones); //Here We should use structures like datas of dataBase 
+	writeToFile(path, f, tel); //Here We should use structures like datas of dataBase 
 	path  = "phones.txt";
-	readFrFile(path);
+	readFrFile(path, f, tel);
+	
 
 }
