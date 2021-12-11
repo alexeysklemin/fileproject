@@ -1,50 +1,4 @@
-﻿//#include <iostream>
-//#include <fstream>
-//#include <string>
-//
-//struct friends {
-//    int id;
-//    std::string friendName;
-//    
-//    };
-//    struct phones {
-//        int id;
-//        int idFriend;
-//        std::string phone;
-//
-//
-//    };
-//    void fileWork(std::string path) {
-//        if (true) {
-//            std::fstream fs;
-//            fs.open(path, std::fstream::in | std::fstream::out | std::fstream::app);
-//            if (!fs.is_open()) {
-//                std::ifstream(path);
-//
-//            }
-//    }
-//}
-//
-//    void writToFile() {
-//        fs.write((char*)&friends, sizeof(friends));
-//    }
-//   
-//
-//int main(){
-//  std::string path = "friendName.txt";
-//  fileWork(path);
-//  path = "phones.txt";
-//  fileWork(path);
-//  std::string Name;
-//  friends f;
-//  f.id = 1;
-//  f.friendName = "Vanya";
-//
-//    
-//
-//    
-//}
-#include <iostream>
+﻿#include <iostream>
 #include <fstream>
 #include <string>
 
@@ -75,15 +29,16 @@ void writeToFile(std::string pathFile, friends, phones){
 
 	std::cin >> f.id >> f.friendName >> p.id >> p.phone;
 	p.idFriend = f.id;
-	write((char*)&phones, size(phones));
+	
 	F.open(pathFile);
+	F.write((char*)&phones, size(phones));
 	F.close();
 }
 
 void readFrFile(std::string pathFile, friends, phones) {
 	std::ifstream F;
 	F.open(pathFile);
-	read((char*)&phones, size(phones));
+	F.read((char*)&phones, size(phones));
 	F.close();
 
 }
