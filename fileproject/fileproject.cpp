@@ -26,19 +26,18 @@ void writeToFile(std::string pathFile, friends, phones){
 	std::ofstream F;
 	friends f;
 	phones p;
-
 	std::cin >> f.id >> f.friendName >> p.id >> p.phone;
 	p.idFriend = f.id;
-	
 	F.open(pathFile);
-	F.write((char*)&phones, size(phones));
+	F.write((char*)&f, sizeof(phones));
 	F.close();
 }
 
 void readFrFile(std::string pathFile, friends, phones) {
 	std::ifstream F;
 	F.open(pathFile);
-	F.read((char*)&phones, size(phones));
+	phones ptr;
+	F.read((char*)&ptr, sizeof(phones));
 	F.close();
 
 }
