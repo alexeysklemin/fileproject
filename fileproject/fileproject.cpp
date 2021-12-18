@@ -31,7 +31,7 @@ void writeToFile(std::string pathFile, friends, phones){
 	F.open(pathFile);
 	F.write((char*)&f, sizeof(phones));
 	F.close();
-}
+}..
 
 void readFrFile(std::string pathFile, friends, phones) {
 	std::ifstream F;
