@@ -3,8 +3,12 @@
 #include <string>
 
 struct friends {
-	    int id =0;
+	    std::string id;
 	    std::string friendName;
+		void printFriend() {
+			std::cout << id << "\t" << friendName << "\t" << std::endl;
+		}
+
 	
 };
 	
@@ -16,23 +20,25 @@ struct phones {
 };
 
 void writeToFile(std::string pathFile, friends, phones){
-	std::ofstream F;
+	std::ofstream Fout;
 	friends f;
 	phones p;
-	std::cin >> f.id >> f.friendName >> p.id >> p.phone;
-	p.idFriend = f.id;
-	F.open(pathFile);
-	F.write((char*)&f, sizeof(phones));
-	F.close();
+	std::cin >> f.id >> f.friendName;
+	//>> p.id >> p.phone;
+	f.id = p.idFriend;
+	Fout.open(pathFile);
+	Fout.write((char*)&f, sizeof(phones));
+	Fout.close();
 }
 
 void readFrFile(std::string pathFile, friends, phones) {
-	std::ifstream F;
-	F.open(pathFile);
-	phones ptr;
-	F.read((char*)&ptr, sizeof(phones));
-	std::cout << (char*)&ptr << "\t";
-	F.close();
+	std::ifstream Fin;
+	friends f;
+	Fin.open(pathFile);
+	friends ptr;
+	Fin.read((char*)&ptr, sizeof(friends));
+	ptr.printFriend();
+	Fin.close();
 
 }
 
@@ -46,12 +52,12 @@ int main() {
 	
 	std::string path = "friends.txt";
 	writeToFile(path, f, tel); //Here We should use structures like datas of dataBase 
-	path  = "phones.txt";
-	writeToFile(path, f, tel);
-	path = "friends.txt";
+	/*path  = "phones.txt";
+	writeToFile(path, f, tel);*/
+	//path = "friends.txt";
 	readFrFile(path, f, tel);
-	path = "phones.txt";
-	readFrFile(path, f, tel);
+	/*path = "phones.txt";
+	readFrFile(path, f, tel);*/
 
 	
 
