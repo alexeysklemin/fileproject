@@ -3,7 +3,7 @@
 #include <string>
 
 struct friends {
-	    int id;
+	    int id = 0;
 	    std::string friendName;
 		void printFriend() {
 			std::cout << id << "\t" << friendName << "\t" << std::endl;
