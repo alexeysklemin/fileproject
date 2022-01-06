@@ -32,26 +32,38 @@ void inputDatas() {
 
 }
 
-void writeToFile(std::string pathFile, friends, phones) {
+void writeToFriends(std::string pathFile, friends) {
 	std::ofstream Fout;
 	friends f;
-	phones p;
 	Fout.open(pathFile);
 	Fout.write((char*)&f, sizeof(friends));
 	Fout.close();
+	
+}
+
+void writeToPhones(std::string pathFile, phones) {
+	std::ofstream Fout;
+	phones p;
 	Fout.open(pathFile);
 	Fout.write((char*)&p, sizeof(phones));
 }
 
-void readFrFile(std::string pathFile, friends, phones) {
+void readFrFriends(std::string pathFile, friends) {
 	std::ifstream Fin;
 	friends f;
-	phones p;
 	Fin.open(pathFile);
 	friends ptr;
 	Fin.read((char*)&ptr, sizeof(friends));
 	ptr.printFriend();
 	Fin.close();
+	
+
+}
+
+void readFrPhones(std::string pathFile, phones) {
+	std::ifstream Fin;
+	phones p;
+	Fin.open(pathFile);
 	phones phonePtr;
 	Fin.read((char*)&phonePtr, sizeof(phones));
 	phonePtr.printPhones();
@@ -59,22 +71,26 @@ void readFrFile(std::string pathFile, friends, phones) {
 
 }
 
+void MunipWithDatas() {
+	friends f;
+	phones tel;
+	inputDatas();
+	std::string path = "friends.txt";
+	writeToFriends(path, f); //Here We should use structures like datas of dataBase 
+	path  = "phones.txt";
+	writeToPhones(path, tel);
+	path = "friends.txt";
+	readFrFriends(path, f);
+	path = "phones.txt";
+	readFrPhones(path, tel);
+}
+
 void delStringofFile() {
 
 }
 
 int main() {
-	friends f;
-	phones tel;
-	inputDatas();
-	std::string path = "friends.txt";
-	writeToFile(path, f, tel); //Here We should use structures like datas of dataBase 
-	path  = "phones.txt";
-	writeToFile(path, f, tel);
-	path = "friends.txt";
-	readFrFile(path, f, tel);
-	path = "phones.txt";
-	readFrFile(path, f, tel);
+	
 
 	
 
