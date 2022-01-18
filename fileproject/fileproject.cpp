@@ -8,6 +8,18 @@ struct friends {
 		void printFriend() {
 			std::cout << id << "\t" << friendName << "\t" << std::endl;
 		}
+		void delString() {
+			std::ifstream fin;
+			fin.open("friends.txt");
+			
+			
+			while (!EOF) {
+				if (id == 2) {
+					std::cout << id << "\t" << friendName << "\t" << std::endl;
+				}
+			}
+			fin.close();
+		}
 
 	
 };
@@ -85,8 +97,25 @@ void MunipWithDatas() {
 	readFrPhones(path, tel);
 }
 
-void delStringofFile() {
+void delStringofFile(std::string deleteId, std::string path, phones) {
+	std::string line;
 
+	std::ifstream fin;
+	fin.open(path);
+	
+	std::cout << "Input index to remove [0 based index]: "; //input line to remove
+	
+
+	while (std::getline(fin, line))
+	{
+		line.replace(line.find(deleteId), deleteId.length(), "");
+		
+	}
+
+	
+	fin.close();
+	remove("cottage.txt");
+	rename("temp.txt", "cottage.txt");
 }
 
 int main() {
