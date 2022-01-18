@@ -19,7 +19,7 @@ struct friends {
 				}
 			}
 			fin.close();
-		}//
+		}/
 
 	
 };
